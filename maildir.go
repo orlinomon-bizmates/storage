@@ -140,7 +140,7 @@ func (maildir *Maildir) List(start, limit int) (*data.Messages, error) {
 	}
 	// TODO: handle the error!
 	sort.Slice(n, func(i,j int) bool{
-		return n[i].ModTime().Before(n[j].ModTime())
+		return n[i].ModTime().Unix() < n[j].ModTime().Unix()
 	})
 
 	for _, fileinfo := range n {
