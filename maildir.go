@@ -141,7 +141,7 @@ func (maildir *Maildir) List(start, limit int) (*data.Messages, error) {
 	// TODO: handle the error!
 	sort.Slice(n, func(i,j int) bool{
 		return n[i].ModTime().Before(n[j].ModTime())
-	})x
+	})
 
 	for _, fileinfo := range n {
 		b, err := ioutil.ReadFile(filepath.Join(maildir.Path, fileinfo.Name()))
